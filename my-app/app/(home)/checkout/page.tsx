@@ -5,394 +5,223 @@ import {
   ArrowLeft,
   ArrowUpRight,
   Check,
+  ChevronRight,
+  CreditCard,
   Lock,
+  QrCode,
   ShieldCheck,
   Sparkles,
 } from "lucide-react"
+
+const benefits = [
+  "40+ aulas práticas",
+  "8 horas de conteúdo",
+  "Certificado de conclusão",
+  "Acesso online",
+  "Estude no seu ritmo",
+]
 
 export default function CheckoutPage() {
   const [payment, setPayment] = useState("pix")
 
   return (
-    <main className="min-h-screen bg-[#f2f1ea] text-[#20251f]">
+    <main className="min-h-screen overflow-hidden bg-[#f4f5ef] text-[#20251f] selection:bg-[#b9df91] selection:text-[#172312]">
+      <header className="border-b border-[#d8dfd2] bg-[#f4f5ef]/90 px-6 backdrop-blur sm:px-10 lg:px-16">
+        <div className="mx-auto flex h-[76px] max-w-[1440px] items-center justify-between">
+          <a
+            href="/"
+            aria-label="Voltar para a página inicial do Nexo PCM"
+            className="flex items-center gap-3 font-[family-name:var(--font-space-grotesk)] text-[19px] font-semibold tracking-[-.05em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#78b83e] focus-visible:ring-offset-4"
+          >
+            <span className="flex h-6 w-[26px] items-end gap-[3px]" aria-hidden="true">
+              <i className="block h-[13px] w-[5px] skew-x-[-18deg] rounded-[1px] bg-[#20251f]" />
+              <i className="block h-[21px] w-[5px] skew-x-[-18deg] rounded-[1px] bg-[#78b83e]" />
+              <i className="block h-[16px] w-[5px] skew-x-[-18deg] rounded-[1px] bg-[#20251f]" />
+            </span>
+            <span>
+              Nexo <b className="ml-1 text-[11px] tracking-[.13em] text-[#477d29]">PCM</b>
+            </span>
+          </a>
 
-      {/* HEADER */}
-      <header className="flex h-[72px] items-center justify-between border-b border-[#ccd2c2] px-[clamp(22px,5vw,76px)]">
-        <a
-          href="/"
-          className="flex items-center gap-[11px] font-[family-name:var(--font-space-grotesk)] text-[19px] font-semibold tracking-[-.05em]"
-        >
-          <span className="flex h-[22px] w-[24px] items-end gap-[3px]">
-            <i className="block h-[12px] w-[5px] skew-x-[-18deg] rounded-[1px] bg-[#20251f]" />
-            <i className="block h-[19px] w-[5px] skew-x-[-18deg] rounded-[1px] bg-[#78b83e]" />
-            <i className="block h-[15px] w-[5px] skew-x-[-18deg] rounded-[1px] bg-[#20251f]" />
-          </span>
-
-          <span>
-            Nexo{" "}
-            <b className="ml-[4px] text-[11px] tracking-[.13em] text-[#477d29]">
-              PCM
-            </b>
-          </span>
-        </a>
-
-        <div className="flex items-center gap-2 text-[11px] text-[#647064]">
-          <Lock size={14} />
-          Checkout seguro
+          <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.12em] text-[#647064] sm:text-[11px]">
+            <Lock size={14} className="text-[#477d29]" strokeWidth={1.8} />
+            <span className="hidden sm:inline">Checkout seguro</span>
+            <span className="sm:hidden">Seguro</span>
+          </div>
         </div>
       </header>
 
+      <section className="relative mx-auto max-w-[1440px] px-6 py-9 sm:px-10 lg:px-16 lg:py-14">
+        <div className="absolute -left-28 top-20 h-64 w-64 rounded-full bg-[#dceccf] blur-3xl" />
 
-      {/* CONTENT */}
-      <section className="mx-auto max-w-[1250px] px-[22px] py-[42px]">
-
-        {/* TOP */}
-        <div className="mb-[35px] flex flex-col justify-between gap-6 border-b border-[#ccd2c2] pb-[32px] md:flex-row md:items-end">
-
+        <div className="relative mb-10 flex flex-col justify-between gap-8 border-b border-[#d8dfd2] pb-9 md:flex-row md:items-end lg:mb-12">
           <div>
             <a
               href="/"
-              className="mb-[20px] inline-flex items-center gap-2 text-[11px] text-[#647064] transition-colors duration-200 hover:text-[#20251f]"
+              className="mb-8 inline-flex items-center gap-2 text-[11px] font-medium text-[#647064] transition-colors hover:text-[#20251f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#78b83e] focus-visible:ring-offset-4"
             >
-              <ArrowLeft size={14} />
+              <ArrowLeft size={14} strokeWidth={1.8} />
               Voltar para o site
             </a>
 
-            <div>
-              <p className="mb-[10px] text-[10px] font-bold uppercase tracking-[.16em] text-[#477d29]">
-                Inscrição · Nexo PCM
-              </p>
-
-              <h1 className="font-[family-name:var(--font-space-grotesk)] text-[clamp(40px,5vw,64px)] font-semibold leading-[.92] tracking-[-.065em]">
-                Comece sua{" "}
-                <span className="text-[#477d29]">
-                  jornada.
-                </span>
-              </h1>
+            <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.18em] text-[#477d29]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#78b83e]" />
+              Inscrição · Nexo PCM
             </div>
+
+            <h1 className="mt-5 max-w-[650px] font-[family-name:var(--font-space-grotesk)] text-[clamp(42px,6vw,72px)] font-semibold leading-[.9] tracking-[-.075em]">
+              Comece sua <span className="text-[#477d29]">jornada.</span>
+            </h1>
           </div>
 
-          <div className="max-w-[330px] text-[12px] leading-[1.6] text-[#647064]">
-            <p>
-              Preencha seus dados e garanta acesso à trilha completa
-              de Planejamento e Controle da Manutenção.
-            </p>
+          <div className="max-w-[360px] text-[13px] leading-7 text-[#647064] md:pb-1">
+            <p>Preencha seus dados e garanta acesso à trilha completa de Planejamento e Controle da Manutenção.</p>
           </div>
         </div>
 
+        <div className="relative mb-10 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.12em] text-[#647064] sm:gap-3">
+          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#78b83e] text-[#172312]">1</span>
+          <span className="text-[#20251f]">Dados</span>
+          <span className="h-px w-8 bg-[#ccd5c6] sm:w-16" />
+          <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[#bfcbb9]">2</span>
+          <span>Pagamento</span>
+          <span className="h-px w-8 bg-[#ccd5c6] sm:w-16" />
+          <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[#bfcbb9]">3</span>
+          <span className="hidden sm:inline">Confirmação</span>
+        </div>
 
-        {/* GRID PRINCIPAL */}
-        <div className="grid gap-[35px] lg:grid-cols-[1fr_390px]">
-
-          {/* FORMULÁRIO */}
+        <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_410px] lg:gap-12">
           <div>
-
-            {/* DADOS */}
-            <section className="border border-[#ccd2c2] bg-[#f5f4ed] p-[25px] md:p-[30px]">
-
-              <div className="mb-[25px] flex items-start justify-between">
+            <section className="border border-[#d8dfd2] bg-white/55 p-6 shadow-[0_16px_50px_rgba(42,61,35,0.04)] sm:p-8">
+              <div className="mb-8 flex items-start justify-between gap-4">
                 <div>
-                  <span className="mb-[7px] block text-[10px] font-bold tracking-[.12em] text-[#477d29]">
-                    01
-                  </span>
-
-                  <h2 className="font-[family-name:var(--font-space-grotesk)] text-[23px] font-medium tracking-[-.04em]">
-                    Seus dados
-                  </h2>
-
-                  <p className="mt-1 text-[11px] text-[#647064]">
-                    Precisamos dessas informações para criar seu acesso.
-                  </p>
+                  <span className="mb-2 block text-[10px] font-bold tracking-[.14em] text-[#477d29]">01</span>
+                  <h2 className="font-[family-name:var(--font-space-grotesk)] text-[25px] font-medium tracking-[-.05em]">Seus dados</h2>
+                  <p className="mt-2 text-[12px] leading-5 text-[#647064]">Precisamos dessas informações para criar seu acesso.</p>
                 </div>
-
-                <div className="border border-[#ccd2c2] p-[9px] text-[#477d29]">
-                  <ShieldCheck size={18} />
+                <div className="grid h-11 w-11 shrink-0 place-items-center border border-[#d8dfd2] bg-[#f4f5ef] text-[#477d29]">
+                  <ShieldCheck size={20} strokeWidth={1.7} />
                 </div>
               </div>
 
-
-              <div className="grid gap-[18px] md:grid-cols-2">
-
-                <label className="grid gap-[7px]">
-                  <span className="text-[10px] font-bold uppercase tracking-[.1em]">
-                    Nome completo
-                  </span>
-
-                  <input
-                    type="text"
-                    placeholder="Seu nome"
-                    className="h-[48px] border border-[#ccd2c2] bg-[#f2f1ea] px-[14px] text-[13px] outline-none transition-colors duration-200 placeholder:text-[#9aa196] focus:border-[#78b83e]"
-                  />
+              <div className="grid gap-5 md:grid-cols-2">
+                <label className="grid gap-2">
+                  <span className="text-[10px] font-bold uppercase tracking-[.1em]">Nome completo</span>
+                  <input name="name" type="text" autoComplete="name" placeholder="Seu nome" className="h-14 border border-[#ccd5c6] bg-[#f9faf6] px-4 text-[13px] outline-none transition-all placeholder:text-[#9aa196] hover:border-[#aebca7] focus:border-[#78b83e] focus:bg-white focus:ring-4 focus:ring-[#78b83e]/10" />
                 </label>
 
-
-                <label className="grid gap-[7px]">
-                  <span className="text-[10px] font-bold uppercase tracking-[.1em]">
-                    CPF
-                  </span>
-
-                  <input
-                    type="text"
-                    placeholder="000.000.000-00"
-                    className="h-[48px] border border-[#ccd2c2] bg-[#f2f1ea] px-[14px] text-[13px] outline-none transition-colors duration-200 placeholder:text-[#9aa196] focus:border-[#78b83e]"
-                  />
+                <label className="grid gap-2">
+                  <span className="text-[10px] font-bold uppercase tracking-[.1em]">CPF</span>
+                  <input name="cpf" type="text" inputMode="numeric" autoComplete="off" placeholder="000.000.000-00" className="h-14 border border-[#ccd5c6] bg-[#f9faf6] px-4 text-[13px] outline-none transition-all placeholder:text-[#9aa196] hover:border-[#aebca7] focus:border-[#78b83e] focus:bg-white focus:ring-4 focus:ring-[#78b83e]/10" />
                 </label>
 
-
-                <label className="grid gap-[7px] md:col-span-2">
-                  <span className="text-[10px] font-bold uppercase tracking-[.1em]">
-                    E-mail
-                  </span>
-
-                  <input
-                    type="email"
-                    placeholder="seu@email.com"
-                    className="h-[48px] border border-[#ccd2c2] bg-[#f2f1ea] px-[14px] text-[13px] outline-none transition-colors duration-200 placeholder:text-[#9aa196] focus:border-[#78b83e]"
-                  />
+                <label className="grid gap-2 md:col-span-2">
+                  <span className="text-[10px] font-bold uppercase tracking-[.1em]">E-mail</span>
+                  <input name="email" type="email" autoComplete="email" placeholder="seu@email.com" className="h-14 border border-[#ccd5c6] bg-[#f9faf6] px-4 text-[13px] outline-none transition-all placeholder:text-[#9aa196] hover:border-[#aebca7] focus:border-[#78b83e] focus:bg-white focus:ring-4 focus:ring-[#78b83e]/10" />
                 </label>
-
               </div>
             </section>
 
-
-            {/* PAGAMENTO */}
-            <section className="mt-[20px] border border-[#ccd2c2] bg-[#f5f4ed] p-[25px] md:p-[30px]">
-
-              <div className="mb-[25px]">
-                <span className="mb-[7px] block text-[10px] font-bold tracking-[.12em] text-[#477d29]">
-                  02
-                </span>
-
-                <h2 className="font-[family-name:var(--font-space-grotesk)] text-[23px] font-medium tracking-[-.04em]">
-                  Pagamento
-                </h2>
-
-                <p className="mt-1 text-[11px] text-[#647064]">
-                  Escolha como deseja realizar o pagamento.
-                </p>
+            <section className="mt-5 border border-[#d8dfd2] bg-white/55 p-6 shadow-[0_16px_50px_rgba(42,61,35,0.04)] sm:p-8">
+              <div className="mb-8">
+                <span className="mb-2 block text-[10px] font-bold tracking-[.14em] text-[#477d29]">02</span>
+                <h2 className="font-[family-name:var(--font-space-grotesk)] text-[25px] font-medium tracking-[-.05em]">Pagamento</h2>
+                <p className="mt-2 text-[12px] leading-5 text-[#647064]">Escolha como deseja realizar o pagamento.</p>
               </div>
 
-
-              <div className="grid gap-[12px] md:grid-cols-2">
-
-                {/* PIX */}
-                <button
-                  type="button"
-                  onClick={() => setPayment("pix")}
-                  className={`relative flex min-h-[100px] flex-col justify-between border p-[17px] text-left transition-all duration-200 ${
-                    payment === "pix"
-                      ? "border-[#78b83e] bg-[#78b83e]/10"
-                      : "border-[#ccd2c2] hover:border-[#78b83e]"
-                  }`}
-                >
-
-                  <div className="flex items-center justify-between">
-                    <strong className="text-[13px]">
-                      PIX
-                    </strong>
-
-                    {payment === "pix" && (
-                      <span className="grid h-[21px] w-[21px] place-items-center rounded-full bg-[#78b83e] text-[#172312]">
-                        <Check size={13} />
-                      </span>
-                    )}
-                  </div>
-
-                  <span className="text-[10px] text-[#647064]">
-                    Aprovação rápida
-                  </span>
-
-                </button>
-
-
-                {/* CARTÃO */}
-                <button
-                  type="button"
-                  onClick={() => setPayment("card")}
-                  className={`relative flex min-h-[100px] flex-col justify-between border p-[17px] text-left transition-all duration-200 ${
-                    payment === "card"
-                      ? "border-[#78b83e] bg-[#78b83e]/10"
-                      : "border-[#ccd2c2] hover:border-[#78b83e]"
-                  }`}
-                >
-
-                  <div className="flex items-center justify-between">
-                    <strong className="text-[13px]">
-                      Cartão de crédito
-                    </strong>
-
-                    {payment === "card" && (
-                      <span className="grid h-[21px] w-[21px] place-items-center rounded-full bg-[#78b83e] text-[#172312]">
-                        <Check size={13} />
-                      </span>
-                    )}
-                  </div>
-
-                  <span className="text-[10px] text-[#647064]">
-                    Pagamento seguro
-                  </span>
-
-                </button>
-
+              <div className="grid gap-3 md:grid-cols-2">
+                {[
+                  { id: "pix", title: "PIX", description: "Aprovação rápida", icon: QrCode },
+                  { id: "card", title: "Cartão de crédito", description: "Pagamento seguro", icon: CreditCard },
+                ].map(({ id, title, description, icon: Icon }) => {
+                  const active = payment === id
+                  return (
+                    <button
+                      key={id}
+                      type="button"
+                      aria-pressed={active}
+                      onClick={() => setPayment(id)}
+                      className={`group relative flex min-h-[112px] flex-col justify-between border p-5 text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#78b83e] focus-visible:ring-offset-2 ${active ? "border-[#78b83e] bg-[#78b83e]/10 shadow-[0_8px_20px_rgba(120,184,62,0.08)]" : "border-[#ccd5c6] bg-[#f9faf6] hover:border-[#78b83e] hover:bg-white"}`}
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <span className={`grid h-8 w-8 place-items-center transition-colors ${active ? "bg-[#78b83e] text-[#172312]" : "bg-[#e9eee5] text-[#477d29] group-hover:bg-[#dceccf]"}`}>
+                          <Icon size={16} strokeWidth={1.8} />
+                        </span>
+                        <span className={`grid h-5 w-5 place-items-center rounded-full border transition-colors ${active ? "border-[#78b83e] bg-[#78b83e] text-[#172312]" : "border-[#bfcbb9]"}`}>
+                          {active && <Check size={12} strokeWidth={2.5} />}
+                        </span>
+                      </div>
+                      <div>
+                        <strong className="block text-[13px]">{title}</strong>
+                        <span className="mt-1 block text-[10px] text-[#647064]">{description}</span>
+                      </div>
+                    </button>
+                  )
+                })}
               </div>
 
-
-              {/* INFO PAGAMENTO */}
-              <div className="mt-[20px] flex items-center gap-3 border-t border-[#ccd2c2] pt-[18px] text-[10px] text-[#647064]">
-                <Lock size={14} className="shrink-0 text-[#477d29]" />
-
-                <span>
-                  Seus dados são protegidos durante todo o processo
-                  de pagamento.
-                </span>
+              <div className="mt-6 flex items-start gap-3 border-t border-[#d8dfd2] pt-5 text-[10px] leading-5 text-[#647064]">
+                <Lock size={14} className="mt-0.5 shrink-0 text-[#477d29]" strokeWidth={1.8} />
+                <span>Seus dados são protegidos durante todo o processo de pagamento.</span>
               </div>
-
             </section>
-
           </div>
 
+          <aside className="h-fit lg:sticky lg:top-8">
+            <div className="relative overflow-hidden bg-[#263125] p-6 text-[#f4f5ef] shadow-[0_20px_60px_rgba(32,37,31,0.16)] sm:p-8">
+              <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full border border-[#8cca4f]/20" />
+              <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-[#78b83e]/10 blur-3xl" />
 
-          {/* RESUMO */}
-          <aside className="h-fit lg:sticky lg:top-[95px]">
-
-            <div className="bg-[#20251f] p-[25px] text-[#f2f1ea]">
-
-              <div className="flex items-center justify-between">
-
-                <span className="border border-[#4a5548] px-[8px] py-[5px] text-[9px] font-bold tracking-[.12em]">
-                  NEXO PCM
-                </span>
-
-                <Sparkles
-                  size={18}
-                  className="text-[#78b83e]"
-                />
-
+              <div className="relative flex items-center justify-between">
+                <span className="border border-[#52604f] px-2 py-1 text-[9px] font-bold tracking-[.14em]">NEXO PCM</span>
+                <Sparkles size={18} className="text-[#8cca4f]" strokeWidth={1.7} />
               </div>
 
-
-              <div className="mt-[27px]">
-
-                <p className="text-[10px] uppercase tracking-[.12em] text-[#8c9989]">
-                  Você está adquirindo
-                </p>
-
-                <h2 className="mt-[7px] font-[family-name:var(--font-space-grotesk)] text-[27px] font-medium tracking-[-.05em]">
-                  Trilha completa
-                </h2>
-
-                <p className="mt-[8px] text-[11px] leading-[1.6] text-[#aeb8aa]">
-                  Formação completa em Planejamento e Controle
-                  da Manutenção.
-                </p>
-
+              <div className="relative mt-8">
+                <p className="text-[10px] uppercase tracking-[.14em] text-[#9cab97]">Você está adquirindo</p>
+                <h2 className="mt-2 font-[family-name:var(--font-space-grotesk)] text-[30px] font-medium tracking-[-.06em]">Trilha completa</h2>
+                <p className="mt-3 text-[12px] leading-6 text-[#b7c3b0]">Formação completa em Planejamento e Controle da Manutenção.</p>
               </div>
 
-
-              {/* PREÇO */}
-              <div className="my-[25px] border-y border-[#4a5548] py-[16px]">
-
-                <span className="text-[10px] text-[#8c9989]">
-                  Pagamento único
-                </span>
-
-                <div className="mt-[3px] flex items-end justify-between">
-
-                  <strong className="font-[family-name:var(--font-space-grotesk)] text-[47px] font-medium leading-none tracking-[-.08em]">
-                    R$ 199
-                  </strong>
-
-                  <span className="mb-[3px] text-[9px] text-[#8c9989]">
-                    acesso completo
-                  </span>
-
+              <div className="relative my-7 border-y border-[#52604f] py-5">
+                <span className="text-[10px] text-[#9cab97]">Pagamento único</span>
+                <div className="mt-2 flex items-end justify-between gap-3">
+                  <strong className="font-[family-name:var(--font-space-grotesk)] text-[52px] font-medium leading-none tracking-[-.09em]">R$ 199</strong>
+                  <span className="mb-1 text-[9px] text-[#9cab97]">acesso completo</span>
                 </div>
-
               </div>
 
-
-              {/* BENEFÍCIOS */}
-              <div className="grid gap-[12px]">
-
-                {[
-                  "40+ aulas práticas",
-                  "8 horas de conteúdo",
-                  "Certificado de conclusão",
-                  "Acesso online",
-                  "Estude no seu ritmo",
-                ].map((item) => (
-
-                  <span
-                    key={item}
-                    className="flex items-center gap-2 text-[11px] text-[#d2d8cf]"
-                  >
-                    <span className="grid h-[18px] w-[18px] shrink-0 place-items-center rounded-full bg-[#78b83e] text-[#172312]">
-                      <Check size={11} />
-                    </span>
-
+              <div className="relative grid gap-3">
+                {benefits.map((item) => (
+                  <span key={item} className="flex items-center gap-2.5 text-[11px] text-[#d9e2d6]">
+                    <span className="grid h-[18px] w-[18px] shrink-0 place-items-center rounded-full bg-[#78b83e] text-[#172312]"><Check size={11} strokeWidth={2.5} /></span>
                     {item}
                   </span>
-
                 ))}
-
               </div>
 
-
-              {/* BOTÃO */}
-              <button
-                type="button"
-                className="mt-[27px] flex w-full items-center justify-center gap-[9px] bg-[#78b83e] px-[19px] py-[15px] text-[12px] font-bold text-[#172312] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#8cca4f] active:scale-[.97]"
-              >
+              <button type="button" className="group relative mt-8 flex h-14 w-full items-center justify-center gap-2 bg-[#78b83e] text-[12px] font-bold text-[#172312] transition-all hover:-translate-y-0.5 hover:bg-[#8cca4f] hover:shadow-[0_12px_28px_rgba(120,184,62,0.25)] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8cca4f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#263125]">
                 Finalizar compra
-                <ArrowUpRight size={16} />
+                <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </button>
 
-
-              <p className="mt-[13px] text-center text-[9px] leading-[1.5] text-[#8c9989]">
-                Ao finalizar, você receberá as instruções
-                para acessar sua conta.
-              </p>
-
+              <p className="relative mt-4 text-center text-[9px] leading-5 text-[#9cab97]">Ao finalizar, você receberá as instruções para acessar sua conta.</p>
             </div>
 
-
-            {/* GARANTIA */}
-            <div className="flex items-center gap-[13px] border border-[#ccd2c2] border-t-0 bg-[#e6e7dc] p-[13px]">
-
-              <div className="grid h-[34px] w-[34px] shrink-0 place-items-center border border-[#ccd2c2] text-[#477d29]">
-                <ShieldCheck size={18} />
-              </div>
-
+            <div className="flex items-center gap-3 border border-t-0 border-[#d8dfd2] bg-[#e8ebe1] p-4">
+              <div className="grid h-10 w-10 shrink-0 place-items-center border border-[#ccd5c6] text-[#477d29]"><ShieldCheck size={19} strokeWidth={1.7} /></div>
               <div>
-                <strong className="block text-[11px]">
-                  Compra protegida
-                </strong>
-
-                <span className="text-[9px] text-[#647064]">
-                  Seus dados são tratados com segurança.
-                </span>
+                <strong className="block text-[11px]">Compra protegida</strong>
+                <span className="mt-1 block text-[9px] text-[#647064]">Seus dados são tratados com segurança.</span>
               </div>
-
             </div>
-
           </aside>
-
         </div>
 
-
-        {/* RODAPÉ */}
-        <div className="mt-[30px] flex flex-col justify-between items-center gap-3 border-t border-[#ccd2c2] pt-[18px] text-[9px] text-[#647064] sm:flex-row">
-
-          <span>
-            Nexo PCM · Formação em Planejamento e Controle da Manutenção
-          </span>
-
-          <span>
-            © 2026 Nexo PCM
-          </span>
-
-        </div>
-
+        <footer className="mt-10 flex flex-col gap-3 border-t border-[#d8dfd2] pt-5 text-[9px] text-[#647064] sm:flex-row sm:items-center sm:justify-between">
+          <span>Nexo PCM · Formação em Planejamento e Controle da Manutenção</span>
+          <span className="inline-flex items-center gap-1">Voltar ao início <ChevronRight size={12} /></span>
+        </footer>
       </section>
     </main>
   )

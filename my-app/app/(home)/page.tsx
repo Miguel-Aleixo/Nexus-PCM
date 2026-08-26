@@ -302,7 +302,7 @@ export default function Home() {
                 shadow-[0_0_0_4px_rgba(120,184,62,.14)]
               "
             />
-            Formação online em manutenção
+            Formação online em PCM
           </p>
 
           <h1

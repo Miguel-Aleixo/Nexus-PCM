@@ -1,169 +1,161 @@
 "use client"
 
 import { useState } from "react"
-import { LuEyeOff } from "react-icons/lu";
-import { LuEye } from "react-icons/lu";
-import {
-    ArrowLeft,
-    ArrowUpRight,
-    Lock,
-} from "lucide-react"
+import { ArrowLeft, ArrowUpRight, Check, Eye, EyeOff, Lock, Sparkles } from "lucide-react"
 
 export default function LoginPage() {
-    const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
 
-    return (
-        <main className="flex min-h-screen bg-[#f2f1ea] text-[#20251f]">
-            {/* LOGIN */}
-            <section className="flex w-full items-center justify-center px-[22px] py-[50px] lg:px-[55px]">
-                <div className="w-full md:px-10">
+  return (
+    <main className="min-h-screen overflow-hidden bg-[#f4f5ef] text-[#20251f] selection:bg-[#b9df91] selection:text-[#172312]">
+      <div className="mx-auto grid min-h-screen max-w-[1600px] lg:grid-cols-[minmax(420px,0.88fr)_minmax(560px,1.12fr)]">
+        {/* Área de acesso */}
+        <section className="relative flex min-h-screen items-center justify-center px-6 py-10 sm:px-10 lg:px-14 xl:px-20">
+          <div className="absolute left-0 top-0 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#dceccf] blur-3xl" />
+
+          <div className="relative w-full max-w-[600px]">
+            <a
+              href="/"
+              className="relative mb-16 inline-flex items-center gap-2 text-[12px] font-medium text-[#647064] transition-colors hover:text-[#20251f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#78b83e] focus-visible:ring-offset-4"
+            >
+              <ArrowLeft size={15} strokeWidth={1.8} />
+              Voltar para o site
+            </a>
+
+            <div className="mb-9">
+              <div className="mb-5 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[.18em] text-[#477d29]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#78b83e]" />
+                Acesso do aluno
+              </div>
+
+
+            </div>
+
+            <form className="rounded-[2px] border border-[#d8dfd2] bg-white/55 p-5 shadow-[0_18px_60px_rgba(42,61,35,0.06)] sm:p-7">
+              <div className="grid gap-5">
+                <label className="grid gap-2.5">
+                  <span className="text-[11px] font-bold uppercase tracking-[.1em]">E-mail</span>
+                  <input
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    placeholder="seu@email.com"
+                    className="h-14 w-full border border-[#ccd5c6] bg-[#f9faf6] px-4 text-[14px] text-[#20251f] outline-none transition-all placeholder:text-[#8b9388] hover:border-[#aebca7] focus:border-[#78b83e] focus:bg-white focus:ring-4 focus:ring-[#78b83e]/10"
+                  />
+                </label>
+
+                <label className="grid gap-2.5">
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="text-[11px] font-bold uppercase tracking-[.1em]">Senha</span>
                     <a
-                        href="/"
-                        className="relative bottom-20 flex items-center gap-2 text-[12px] text-[#647064] transition-colors duration-200 hover:text-[#20251f]"
+                      href="/recuperar-senha"
+                      className="text-[11px] font-medium text-[#477d29] transition-colors hover:text-[#20251f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#78b83e]"
                     >
-                        <ArrowLeft size={15} />
-                        Voltar para o site
+                      Esqueci minha senha
                     </a>
+                  </div>
 
-                    <div className="mb-[35px]">
-                        <p className="mb-[15px] text-[11px] font-bold uppercase tracking-[.16em] text-[#477d29]">
-                            Acesso
-                        </p>
-
-                        <h2 className="font-[family-name:var(--font-space-grotesk)] text-[42px] font-semibold leading-[.95] tracking-[-.065em]">
-                            Entrar
-                        </h2>
-
-                        <p className="mt-[17px] text-[13px] leading-[1.6] text-[#647064]">
-                            Acesse sua área de aluno.
-                        </p>
-                    </div>
-
-                    <form className="grid gap-[22px]">
-                        <label className="grid gap-2">
-                            <span className="text-[11px] font-bold uppercase tracking-[.1em]">
-                                E-mail
-                            </span>
-
-                            <input
-                                type="email"
-                                placeholder="seu@email.com"
-                                className="h-[52px] border border-[#ccd2c2] bg-transparent px-[15px] text-[14px] outline-none transition-colors duration-200 placeholder:text-[#8b9388] focus:border-[#78b83e]"
-                            />
-                        </label>
-
-                        <label className="grid gap-2">
-                            <div className="flex items-center justify-between">
-                                <span className="text-[11px] font-bold uppercase tracking-[.1em]">
-                                    Senha
-                                </span>
-
-                                <a
-                                    href="/recuperar-senha"
-                                    className="text-[11px] text-[#477d29] transition-colors hover:text-[#20251f]"
-                                >
-                                    Esqueci minha senha
-                                </a>
-                            </div>
-
-                            <div className="relative">
-                                <input
-                                    type={showPassword ? "text" : "password"}
-                                    placeholder="Sua senha"
-                                    className="h-[52px] w-full border border-[#ccd2c2] bg-transparent px-[15px] pr-[70px] text-[14px] outline-none transition-colors duration-200 placeholder:text-[#8b9388] focus:border-[#78b83e]"
-                                />
-
-                                <button
-                                    type="button"
-                                    onClick={() => setShowPassword(!showPassword)}
-                                    className="absolute right-[15px] top-1/2 -translate-y-1/2 text-[11px] font-bold text-[#477d29]"
-                                >
-                                    {showPassword ? <LuEye /> : <LuEyeOff />}
-                                </button>
-                            </div>
-                        </label>    
-
-                        <button
-                            type="submit"
-                            className="mt-[8px] flex h-[52px] w-full items-center justify-center gap-[10px] bg-[#78b83e] text-[13px] font-bold text-[#172312] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#8cca4f] active:scale-[.97]"
-                        >
-                            Entrar
-                            <ArrowUpRight size={17} />
-                        </button>
-                    </form>
-
-                    <div className="my-[30px] flex items-center gap-[12px]">
-                        <span className="h-px flex-1 bg-[#ccd2c2]" />
-                        <span className="text-[10px] text-[#647064]">
-                            ou
-                        </span>
-                        <span className="h-px flex-1 bg-[#ccd2c2]" />
-                    </div>
-
-                    <p className="text-center text-[12px] text-[#647064]">
-                        Ainda não possui acesso?
-                    </p>
-
-                    <a
-                        href="/checkout"
-                        className="mt-[12px] flex h-[48px] w-full items-center justify-center gap-2 border border-[#ccd2c2] text-[12px] font-bold transition-colors duration-200 hover:border-[#78b83e]"
+                  <div className="relative">
+                    <input
+                      name="password"
+                      type={showPassword ? "text" : "password"}
+                      autoComplete="current-password"
+                      placeholder="Sua senha"
+                      className="h-14 w-full border border-[#ccd5c6] bg-[#f9faf6] px-4 pr-14 text-[14px] text-[#20251f] outline-none transition-all placeholder:text-[#8b9388] hover:border-[#aebca7] focus:border-[#78b83e] focus:bg-white focus:ring-4 focus:ring-[#78b83e]/10"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword((visible) => !visible)}
+                      aria-label={showPassword ? "Ocultar senha" : "Mostrar senha"}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 rounded-sm p-1 text-[#477d29] transition-colors hover:bg-[#eaf3e3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#78b83e]"
                     >
-                        Conhecer o Nexo PCM
-                        <ArrowUpRight size={15} />
-                    </a>
+                      {showPassword ? <Eye size={18} strokeWidth={1.8} /> : <EyeOff size={18} strokeWidth={1.8} />}
+                    </button>
+                  </div>
+                </label>
 
-                    <div className="mt-[30px] flex items-center justify-center gap-2 text-[10px] text-[#647064]">
-                        <Lock size={13} />
-                        Ambiente seguro
-                    </div>
-                </div>
-            </section>
-
-            {/* LADO DIREITO */}
-            <section className="hidden md:flex w-full flex-col justify-between items-left border-l border-[#ccd2c2] p-[clamp(30px,5vw,80px)]">
-                <a
-                    href="/"
-                    className="flex w-fit items-centergap-[11px] font-[family-name:var(--font-space-grotesk)] text-[19px] font-semibold tracking-[-.05em]"
+                <button
+                  type="submit"
+                  className="group mt-1 flex h-14 w-full items-center justify-center gap-2 bg-[#78b83e] text-[13px] font-bold text-[#172312] transition-all hover:-translate-y-0.5 hover:bg-[#8cca4f] hover:shadow-[0_10px_24px_rgba(120,184,62,0.22)] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#477d29] focus-visible:ring-offset-2"
                 >
-                    <span className="flex h-[22px] w-[24px] items-end gap-[3px]">
-                        <i className="block h-[12px] w-[5px] skew-x-[-18deg] rounded-[1px] bg-[#20251f]" />
-                        <i className="block h-[19px] w-[5px] skew-x-[-18deg] rounded-[1px] bg-[#78b83e]" />
-                        <i className="block h-[15px] w-[5px] skew-x-[-18deg] rounded-[1px] bg-[#20251f]" />
-                    </span>
+                  Entrar
+                  <ArrowUpRight size={17} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </button>
+              </div>
+            </form>
 
-                    <span>
-                        Nexo{" "}
-                        <b className="ml-[4px] text-[11px] tracking-[.13em] text-[#477d29]">
-                            PCM
-                        </b>
-                    </span>
-                </a>
+            <div className="my-7 flex items-center gap-3">
+              <span className="h-px flex-1 bg-[#d8dfd2]" />
+              <span className="text-[10px] font-medium uppercase tracking-[.12em] text-[#8b9388]">ou</span>
+              <span className="h-px flex-1 bg-[#d8dfd2]" />
+            </div>
 
-                <div className="flex flex-col gap-10">
-                    <p className=" text-[11px] font-bold uppercase tracking-[.16em] text-[#477d29]">
-                        Área do aluno
-                    </p>
+            <div className="text-center">
+              <p className="text-[12px] text-[#647064]">Ainda não possui acesso?</p>
+              <a
+                href="/checkout"
+                className="mt-3 flex h-12 w-full items-center justify-center gap-2 border border-[#bfcbb9] text-[12px] font-bold transition-all hover:border-[#78b83e] hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#78b83e] focus-visible:ring-offset-2"
+              >
+                Conhecer o Nexo PCM
+                <ArrowUpRight size={15} />
+              </a>
+            </div>
 
-                    <h1 className="font-[family-name:var(--font-space-grotesk)] text-[clamp(50px,6vw,78px)] font-semibold leading-[.94] tracking-[-.065em]">
-                        Continue sua
-                        <br />
-                        <span className="text-[#477d29]">
-                            jornada.
-                        </span>
-                    </h1>
+            <div className="mt-7 flex items-center justify-center gap-2 text-[10px] font-medium text-[#7c8878]">
+              <Lock size={13} strokeWidth={1.8} />
+              Ambiente seguro e protegido
+            </div>
+          </div>
+        </section>
 
-                    <p className="mt-[25px] text-[15px] leading-[1.75] text-[#647064]">
-                        Entre na sua conta para continuar suas aulas e acompanhar seu
-                        progresso no Nexo PCM.
-                    </p>
+        {/* Painel de posicionamento */}
+        <section className="relative hidden min-h-screen overflow-hidden border-l border-[#d8dfd2] bg-[#263125] p-10 text-[#f4f5ef] lg:flex lg:flex-col lg:justify-between xl:p-16">
+          <div className="absolute -right-40 -top-36 h-[520px] w-[520px] rounded-full border border-[#8cca4f]/20" />
+          <div className="absolute -right-16 -top-12 h-[360px] w-[360px] rounded-full border border-[#8cca4f]/15" />
+          <div className="absolute bottom-[-220px] left-[-180px] h-[480px] w-[480px] rounded-full bg-[#78b83e]/10 blur-3xl" />
+
+          <a
+            href="/"
+            className="relative bottom-7 flex w-fit items-center gap-3 font-[family-name:var(--font-space-grotesk)] text-[19px] font-semibold tracking-[-.05em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8cca4f] focus-visible:ring-offset-4 focus-visible:ring-offset-[#263125]"
+          >
+            <span className="flex h-[24px] w-[26px] items-end gap-[3px]" aria-hidden="true">
+              <i className="block h-[13px] w-[5px] skew-x-[-18deg] rounded-[1px] bg-[#f4f5ef]" />
+              <i className="block h-[21px] w-[5px] skew-x-[-18deg] rounded-[1px] bg-[#8cca4f]" />
+              <i className="block h-[16px] w-[5px] skew-x-[-18deg] rounded-[1px] bg-[#f4f5ef]" />
+            </span>
+            <span>
+              Nexo <b className="ml-1 text-[11px] tracking-[.13em] text-[#8cca4f]">PCM</b>
+            </span>
+          </a>
+
+          <div className="relative max-w-[590px]">
+            <div className="mb-7 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[.18em] text-[#8cca4f]">
+              <Sparkles size={14} strokeWidth={1.8} />
+              Sua evolução começa aqui
+            </div>
+            <h2 className="font-[family-name:var(--font-space-grotesk)] text-[clamp(54px,6vw,88px)] font-semibold leading-[.9] tracking-[-.075em]">
+              Conhecimento que
+              <br />
+              <span className="text-[#8cca4f]">transforma.</span>
+            </h2>
+            <p className="mt-8 max-w-[480px] text-[15px] leading-7 text-[#b7c3b0]">
+              Conteúdos práticos, organização e clareza para você construir uma jornada de manutenção mais eficiente.
+            </p>
+
+            <div className="mt-10 grid max-w-[480px] gap-3 sm:grid-cols-3">
+              {['Aulas práticas', 'Seu progresso', 'Método Nexo'].map((item) => (
+                <div key={item} className="flex items-center gap-2 text-[11px] text-[#dce6d7]">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#8cca4f]/15 text-[#8cca4f]"><Check size={12} /></span>
+                  {item}
                 </div>
+              ))}
+            </div>
+          </div>
 
-                <p className="text-[10px] text-[#647064]">
-                    © 2026 Nexo PCM · Feito para a manutenção.
-                </p>
-            </section>
-
-
-        </main>
-    )
+          <p className="relative top-5 text-[10px] text-[#91a08c]">© 2026 Nexo PCM · Feito para a manutenção.</p>
+        </section>
+      </div>
+    </main>
+  )
 }
+
